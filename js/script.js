@@ -18,9 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---------- scroll reveal ---------- */
+  /* ---------- scroll reveal (progressive enhancement) ----------
+     Content is visible by default (see CSS). Only once we've confirmed
+     IntersectionObserver works do we "arm" the hidden/animate-in state,
+     so nothing ever depends on JS to become visible. */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
+    document.body.classList.add('reveal-armed');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -30,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in'));
   }
 
   /* ---------- services page: drawing-sheet tabs ---------- */
