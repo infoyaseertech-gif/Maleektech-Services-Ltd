@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Team | Maleektech Services Ltd</title>
-<meta name="description" content="Meet the leadership and team behind Maleektech Services Ltd — engineers, architects and technical specialists delivering construction, ICT and property management projects across Nigeria.">
+<title>Projects | Maleektech Services Ltd</title>
+<meta name="description" content="Browse ICT, construction and property management projects delivered by Maleektech Services Ltd across Nigeria.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,7 +16,7 @@
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" class="active">Projects</a>
       <a href="about.html">About</a>
       <div class="has-drop">
         <a href="services.html">Services</a>
@@ -26,7 +26,7 @@
           <a href="services.html#property">Project &amp; Property Mgmt</a>
         </div>
       </div>
-      <a href="team.html" class="active">Team</a>
+      <a href="team.html">Team</a>
       <a href="certifications.html">Certifications</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -57,85 +57,93 @@
   </div>
 </header>
 
-<!-- ================= TEAM HERO (distinct dark editorial theme) ================= -->
-<section class="team-hero">
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Team</div>
-    <h1>Meet Our Team</h1>
-    <p class="lead">The leadership, engineers and technical specialists behind every Maleektech delivery.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
+    <h1>Our Projects</h1>
+    <p class="lead">A record of work across ICT, construction and property management. Filter by category below.</p>
   </div>
 </section>
 
-<section class="team-section">
+<section class="section-white">
   <div class="container">
 
-    <!-- ---------- LEADERSHIP SPOTLIGHT ---------- -->
-    <span class="team-tag">— Leadership</span>
-    <div class="leader-spotlight reveal">
-      <div class="leader-photo"><img src="assets/team/ahmad.jpg" alt="Ahmad Abdulmalik"></div>
-      <div class="leader-body">
-        <h2>Ahmad Abdulmalik</h2>
-        <span class="role">Chairman &amp; Chief Executive Officer (CEO)</span>
-        <p>Founded and leads Maleektech Services Ltd, setting the strategic direction and corporate governance that guide the company across ICT training &amp; consultancy, general construction, and project &amp; property management. Leadership grounded in accountability, quality assurance, and delivery clients across Nigeria can rely on.</p>
-      </div>
+    <div class="filter-row reveal">
+      <button data-filter="all" class="active">All Projects</button>
+      <button data-filter="construction">General Construction</button>
+      <button data-filter="ict">ICT Training &amp; Consultancy</button>
+      <button data-filter="property">Project &amp; Property Mgmt</button>
     </div>
 
-    <!-- ---------- STAFF GRID ---------- -->
-    <span class="team-tag">— Staff</span>
-    <div class="team-grid reveal">
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/team/abba.jpg" alt="Abba Hassan"></div>
-        <div class="team-card-body">
-          <h3>Abba Hassan</h3>
-          <div class="role">Principal Architect</div>
-          <p class="bio">ARCON-registered; leads architectural design and standards across projects.</p>
+    <div class="project-grid reveal">
+
+      <div class="project-card" data-category="construction">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1"/></svg></div>
+        <div class="project-body">
+          <div class="cat">General Construction</div>
+          <h3>Feeder Road Rehabilitation</h3>
+          <p>Grading, drainage and laterite surfacing to restore rural connectivity for agricultural transport.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="initials">MS</span><span class="pending-tag">Photo pending</span></div>
-        <div class="team-card-body">
-          <h3>Muhammad Saidu Shehu</h3>
-          <div class="role">Project Architect</div>
-          <p class="bio">ARCON-registered; manages project-level architectural delivery.</p>
+
+      <div class="project-card" data-category="construction">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1"/></svg></div>
+        <div class="project-body">
+          <div class="cat">General Construction</div>
+          <h3>Residential Estate Development</h3>
+          <p>Multi-unit housing development from foundation through finishing, delivered turnkey.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/team/mukhtar.jpg" alt="Mukhtar Adamu Safana"></div>
-        <div class="team-card-body">
-          <h3>Mukhtar Adamu Safana</h3>
-          <div class="role">Structural / Civil Engineer</div>
-          <p class="bio">COREN-registered; oversees structural design and site engineering.</p>
+
+      <div class="project-card" data-category="ict">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="project-body">
+          <div class="cat">ICT Training &amp; Consultancy</div>
+          <h3>Fiber &amp; Network Infrastructure Rollout</h3>
+          <p>Structured cabling, network installation and system integration for a commercial client.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/team/yasir.jpg" alt="Yasir Muhammad Jafar"></div>
-        <div class="team-card-body">
-          <h3>Yasir Muhammad Jafar</h3>
-          <div class="role">Procurement Officer &amp; ICT</div>
-          <p class="bio">Coordinates sourcing and procurement across materials, vehicles and supply contracts, and manages the company's ICT systems and operations.</p>
+
+      <div class="project-card" data-category="property">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+        <div class="project-body">
+          <div class="cat">Project &amp; Property Mgmt</div>
+          <h3>Commercial Facility Management</h3>
+          <p>Ongoing maintenance, tenant administration and facility upkeep for a commercial portfolio.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="initials">MA</span><span class="pending-tag">Photo pending</span></div>
-        <div class="team-card-body">
-          <h3>Mustapha Abdulqadir, ESQ</h3>
-          <div class="role">Legal Adviser &amp; Secretary</div>
-          <p class="bio">Oversees legal compliance, contracts and corporate secretarial matters.</p>
+
+      <div class="project-card" data-category="construction">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1"/></svg></div>
+        <div class="project-body">
+          <div class="cat">General Construction</div>
+          <h3>Asphalt Resurfacing Project</h3>
+          <p>Hot mix asphalt overlay and compaction testing to extend pavement lifespan.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/team/damari.jpg" alt="Ahmad Isah Damari"></div>
-        <div class="team-card-body">
-          <h3>Ahmad Isah Damari</h3>
-          <div class="role">Architectural Technologist</div>
-          <p class="bio">Supports architectural design, technical drawings and documentation.</p>
+
+      <div class="project-card" data-category="construction">
+        <div class="project-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18"/><path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1"/></svg></div>
+        <div class="project-body">
+          <div class="cat">General Construction</div>
+          <h3>Institutional Facility Construction</h3>
+          <p>Design-to-delivery construction of an institutional building, compliant with regulatory codes.</p>
+          <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Location on request</div>
         </div>
       </div>
+
     </div>
 
-    <div class="team-placeholder-note reveal">
-      <strong>Note for site editor:</strong> Muhammad Saidu Shehu and Mustapha Abdulqadir, ESQ are shown with initials until their photos are supplied — swap in <code>assets/team/[name].jpg</code> and update the corresponding card in <code>team.html</code> once available.
+    <div class="placeholder-note reveal">
+      <strong>Note for site editor:</strong> these six entries are placeholders showing the intended layout and filtering behavior. Replace the thumbnail, title, description, category and location on each card with real project photos and details as they become available — the grid and filters will continue to work automatically.
     </div>
+
   </div>
 </section>
 
@@ -143,10 +151,10 @@
 <section class="section-tint reveal">
   <div class="container">
     <div class="cta-banner">
-      <div class="eyebrow" style="justify-content:center; color:#8FE0AE;">Work With Us</div>
-      <h2 style="margin-top:18px;">Want to work with our team?</h2>
+      <div class="eyebrow" style="justify-content:center; color:#8FE0AE;">Start Your Project</div>
+      <h2 style="margin-top:18px;">Become our next featured project.</h2>
       <div class="btn-row">
-        <a href="contact.html" class="btn btn-on-dark">Contact Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="contact.html" class="btn btn-on-dark">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="services.html" class="btn btn-outline-on-dark">View Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
