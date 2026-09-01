@@ -59,16 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---------- projects page: category filter ---------- */
+  /* ---------- projects page: category filter ----------
+     Queries cards fresh on every click (not cached at load) so this
+     also works when cards are rendered dynamically after a fetch. */
   const filterButtons = document.querySelectorAll('.filter-row button');
-  const projectCards = document.querySelectorAll('.project-card');
   if (filterButtons.length) {
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         filterButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const cat = btn.getAttribute('data-filter');
-        projectCards.forEach(card => {
+        document.querySelectorAll('.project-card').forEach(card => {
           const show = cat === 'all' || card.getAttribute('data-category') === cat;
           card.style.display = show ? '' : 'none';
         });

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Manager</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <div class="admin-brand"><img src="assets/logo.png" alt="Maleektech Services Ltd"></div>
+
+  <!-- ================= LOGIN ================= -->
+  <div id="login-view">
+    <div class="login-card">
+      <h1>Project Manager</h1>
+      <p class="sub">Sign in to upload and manage project media.</p>
+      <form id="login-form">
+        <div class="form-field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required autocomplete="username">
+        </div>
+        <div class="form-field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Sign In</button>
+        <div class="login-error" id="login-error"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div id="dashboard-view" style="display:none;">
+    <div class="admin-dash">
+
+      <div class="admin-topbar">
+        <div class="who">Signed in as <strong id="user-email"></strong></div>
+        <button id="logout-btn" class="btn-small" type="button">Sign Out</button>
+      </div>
+
+      <div class="admin-card">
+        <h2>Upload a Project</h2>
+        <form id="upload-form">
+          <div class="form-field">
+            <label for="f-title">Title</label>
+            <input type="text" id="f-title" required placeholder="e.g. Feeder Road Rehabilitation">
+          </div>
+          <div class="form-field">
+            <label for="f-category">Category</label>
+            <select id="f-category" required>
+              <option value="construction">General Construction</option>
+              <option value="ict">ICT Training &amp; Consultancy</option>
+              <option value="property">Project &amp; Property Management</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="f-location">Location (optional)</label>
+            <input type="text" id="f-location" placeholder="e.g. Funtua, Katsina State">
+          </div>
+          <div class="form-field">
+            <label for="f-description">Description</label>
+            <textarea id="f-description" required placeholder="Brief description of the project"></textarea>
+          </div>
+          <div class="form-field">
+            <label for="f-file">Image or Video File</label>
+            <input type="file" id="f-file" accept="image/*,video/*" required>
+          </div>
+          <button type="submit" class="btn btn-primary" id="upload-btn">Upload Project</button>
+          <div class="progress-wrap" id="progress-wrap">
+            <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+            <div class="progress-label" id="progress-label">Uploading… 0%</div>
+          </div>
+          <div class="upload-msg" id="upload-msg"></div>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <h2>Existing Projects</h2>
+        <div id="admin-project-list"></div>
+        <p class="admin-list-empty" id="admin-list-empty" style="display:none;">No projects uploaded yet.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
