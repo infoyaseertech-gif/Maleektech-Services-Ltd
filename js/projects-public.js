@@ -1,17 +1,13 @@
 // ============================================================
-// PUBLIC PROJECTS RENDERER — read-only. Fetches from Firestore
+// PUBLIC PROJECTS RENDERER — read-only. Fetches from Supabase
 // and renders cards into #project-grid. No write access, no
 // link to the admin panel anywhere in this file or the page.
 // ============================================================
 
-import { firebaseConfig } from './firebase-config.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-import {
-  getFirestore, collection, getDocs, query, orderBy
-} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { supabaseConfig } from './supabase-config.js';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
 
 const CATEGORY_LABELS = {
   construction: 'General Construction',
@@ -27,15 +23,16 @@ function escapeHtml(str) {
 
 function cardHtml(p) {
   const catLabel = CATEGORY_LABELS[p.category] || p.category || '';
-  const media = p.mediaType === 'video'
-    ? `<video src="${p.mediaUrl}" muted loop playsinline autoplay></video>`
-    : `<img src="${p.mediaUrl}" alt="${escapeHtml(p.title)}" loading="lazy">`;
+  const media = p.media_type === 'video'
+    ? `<video src="${p.media_url}" muted loop playsinline autoplay></video>`
+    : `<img src="${p.media_url}" alt="${escapeHtml(p.title)}" loading="lazy">`;
   const locHtml = p.location
     ? `<div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> ${escapeHtml(p.location)}</div>`
     : '';
+  const featuredBadge = p.featured ? '<span class="featured-badge">Featured</span>' : '';
   return `
     <div class="project-card" data-category="${escapeHtml(p.category)}">
-      <div class="project-thumb project-thumb-media">${media}</div>
+      <div class="project-thumb project-thumb-media">${featuredBadge}${media}</div>
       <div class="project-body">
         <div class="cat">${escapeHtml(catLabel)}</div>
         <h3>${escapeHtml(p.title)}</h3>
@@ -51,23 +48,28 @@ async function renderProjects() {
   const loadingState = document.getElementById('projects-loading');
   if (!grid) return;
 
-  try {
-    const q = query(collection(db, 'projects'), orderBy('createdAt', 'desc'));
-    const snap = await getDocs(q);
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('featured', { ascending: false })
+    .order('sort_order', { ascending: false });
 
-    if (loadingState) loadingState.style.display = 'none';
+  if (loadingState) loadingState.style.display = 'none';
 
-    if (snap.empty) {
-      if (emptyState) emptyState.style.display = 'block';
-      return;
+  if (error) {
+    if (loadingState) {
+      loadingState.style.display = 'block';
+      loadingState.textContent = 'Could not load projects right now — please refresh.';
     }
-
-    const html = [];
-    snap.forEach((docSnap) => html.push(cardHtml(docSnap.data())));
-    grid.innerHTML = html.join('');
-  } catch (err) {
-    if (loadingState) loadingState.textContent = 'Could not load projects right now — please refresh.';
+    return;
   }
+
+  if (!data || data.length === 0) {
+    if (emptyState) emptyState.style.display = 'block';
+    return;
+  }
+
+  grid.innerHTML = data.map(cardHtml).join('');
 }
 
 document.addEventListener('DOMContentLoaded', renderProjects);

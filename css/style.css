@@ -641,11 +641,33 @@ footer{ background:linear-gradient(160deg, var(--green-deep), #062f18); color:va
   padding:8px 14px; border-radius:999px; cursor:pointer; flex-shrink:0;
 }
 .admin-row-delete:hover{ background:#FDF0EE; }
+.admin-row-actions{ display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.admin-icon-btn{
+  width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--white);
+  color:var(--body); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:all .15s ease;
+}
+.admin-icon-btn:hover:not(:disabled){ border-color:var(--green); color:var(--green-deep); }
+.admin-icon-btn:disabled{ opacity:0.3; cursor:not-allowed; }
+.admin-featured-pill{
+  display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em;
+  background:var(--green-light); color:var(--green-deep); padding:3px 9px; border-radius:999px; margin-left:8px;
+  vertical-align:middle;
+}
+.form-field-check{ display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+.form-field-check input{ width:17px; height:17px; accent-color:var(--green); cursor:pointer; }
+.form-field-check label{ font-size:13.5px; color:var(--body); cursor:pointer; }
 .admin-loading, .admin-list-empty{ font-size:13.5px; color:var(--muted); padding:12px 0; }
 
 /* dynamic public project media (image/video fills the thumb) */
-.project-thumb-media{ background:var(--green-lighter); }
+.project-thumb-media{ background:var(--green-lighter); position:relative; }
 .project-thumb-media img, .project-thumb-media video{ width:100%; height:100%; object-fit:cover; }
+.featured-badge{
+  position:absolute; top:14px; left:14px; z-index:2;
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;
+  background:#E8A23C; color:#1A1A1A; padding:6px 12px; border-radius:999px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
 #projects-loading, #projects-empty{
   text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; display:none;
 }
