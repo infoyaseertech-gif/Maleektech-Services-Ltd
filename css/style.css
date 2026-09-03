@@ -672,6 +672,26 @@ footer{ background:linear-gradient(160deg, var(--green-deep), #062f18); color:va
   text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; display:none;
 }
 
+/* ============================================================
+   BEFORE / AFTER VIDEO SHOWCASE
+   ============================================================ */
+.ba-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+@media (max-width:760px){ .ba-grid{ grid-template-columns:1fr; } }
+.ba-card{ background:var(--green-lighter); border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); }
+.ba-label{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px; border-bottom:1px solid var(--border);
+}
+.ba-label h3{ font-size:15px; text-transform:uppercase; letter-spacing:0.04em; }
+.ba-tag{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; padding:5px 12px; border-radius:999px; }
+.ba-tag.before{ background:#F4E3D3; color:#8A5A2B; }
+.ba-tag.after{ background:var(--green-light); color:var(--green-deep); }
+.ba-video-wrap{
+  display:flex; align-items:center; justify-content:center;
+  background:#0B1210; min-height:280px; max-height:520px; overflow:hidden;
+}
+.ba-video-wrap video{ width:100%; max-height:520px; object-fit:contain; display:block; }
+
 /* ---------- reveal on scroll ----------
    Fail-safe by default: content is visible unless JS confirms it can
    both detect scroll position AND animate it in (see js/script.js).
