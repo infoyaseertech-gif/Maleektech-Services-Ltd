@@ -31,10 +31,30 @@
       <a href="contact.html" class="active">Contact</a>
     </div>
     <div class="nav-actions">
-      <a class="erp-btn" href="https://maleek-tech.web.app/" target="_blank" rel="noopener">
-        <span class="long">ERP</span> Login
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
-      </a>
+      <div class="has-drop portal-drop">
+        <a href="#" class="erp-btn portal-trigger" onclick="return false;">
+          <span class="long">Portals</span><span class="short">Login</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="dropdown portal-dropdown">
+          <a href="https://maleek-tech.web.app/" target="_blank" rel="noopener" class="portal-option">
+            <div class="portal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+            <div class="portal-text">
+              <div class="portal-title">ERP Login</div>
+              <div class="portal-sub">Staff &amp; admin dashboard</div>
+            </div>
+            <div class="portal-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></div>
+          </a>
+          <a href="https://maleektech-gadgets-store.vercel.app/" target="_blank" rel="noopener" class="portal-option">
+            <div class="portal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12a2 2 0 01-2 2H9a2 2 0 01-2-2L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></div>
+            <div class="portal-text">
+              <div class="portal-title">Gadget Store</div>
+              <div class="portal-sub">Shop mobile accessories online</div>
+            </div>
+            <div class="portal-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></div>
+          </a>
+        </div>
+      </div>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -52,7 +72,17 @@
       <a href="certifications.html">Certifications</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
-      <a href="https://maleek-tech.web.app/" target="_blank" rel="noopener">ERP Login ↗</a>
+      <div class="mobile-portal-group">
+        <span class="mobile-portal-label">Portals</span>
+        <a href="https://maleek-tech.web.app/" target="_blank" rel="noopener" class="mobile-portal-link">
+          <div class="portal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+          <div class="portal-text"><div class="portal-title">ERP Login</div><div class="portal-sub">Staff &amp; admin dashboard</div></div>
+        </a>
+        <a href="https://maleektech-gadgets-store.vercel.app/" target="_blank" rel="noopener" class="mobile-portal-link">
+          <div class="portal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12a2 2 0 01-2 2H9a2 2 0 01-2-2L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></div>
+          <div class="portal-text"><div class="portal-title">Gadget Store</div><div class="portal-sub">Shop mobile accessories online</div></div>
+        </a>
+      </div>
     </div>
   </div>
 </header>
