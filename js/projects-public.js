@@ -48,6 +48,10 @@ async function renderProjects() {
   const loadingState = document.getElementById('projects-loading');
   if (!grid) return;
 
+  // The grid already contains hand-authored project cards in the HTML.
+  // Anything fetched here is APPENDED so those are never wiped out.
+  const hasStaticCards = grid.querySelectorAll('.project-card').length > 0;
+
   const { data, error } = await supabase
     .from('projects')
     .select('*')
@@ -57,7 +61,9 @@ async function renderProjects() {
   if (loadingState) loadingState.style.display = 'none';
 
   if (error) {
-    if (loadingState) {
+    // Static cards are still on screen, so fail quietly rather than
+    // implying the whole page is broken.
+    if (!hasStaticCards && loadingState) {
       loadingState.style.display = 'block';
       loadingState.textContent = 'Could not load projects right now — please refresh.';
     }
@@ -65,11 +71,11 @@ async function renderProjects() {
   }
 
   if (!data || data.length === 0) {
-    if (emptyState) emptyState.style.display = 'block';
+    if (!hasStaticCards && emptyState) emptyState.style.display = 'block';
     return;
   }
 
-  grid.innerHTML = data.map(cardHtml).join('');
+  grid.insertAdjacentHTML('beforeend', data.map(cardHtml).join(''));
 }
 
 document.addEventListener('DOMContentLoaded', renderProjects);

@@ -1,12 +1,19 @@
 // ============================================================
-// FEATURED PROJECT GALLERY — simple click-to-enlarge lightbox
-// with next/prev navigation and keyboard support.
+// RIKENI / SOKOTO PROJECT GALLERY — click the project card to
+// open a full-screen lightbox of all 19 site photos, with
+// next/prev navigation and keyboard support.
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  const thumbs = document.querySelectorAll('.fp-thumb');
+  const trigger = document.getElementById('rikeni-gallery-trigger');
   const lightbox = document.getElementById('fp-lightbox');
-  if (!thumbs.length || !lightbox) return;
+  if (!trigger || !lightbox) return;
+
+  const TOTAL = 19;
+  const images = Array.from({ length: TOTAL }, (_, i) => {
+    const n = String(i + 1).padStart(2, '0');
+    return `assets/projects/rikeni-sokoto/full/photo-${n}.jpg`;
+  });
 
   const lbImg = document.getElementById('fp-lb-img');
   const lbCounter = document.getElementById('fp-lb-counter');
@@ -14,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('fp-lb-prev');
   const nextBtn = document.getElementById('fp-lb-next');
 
-  const images = Array.from(thumbs).map(t => t.getAttribute('data-full'));
   let current = 0;
 
   function show(index) {
@@ -23,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lbCounter.textContent = `${current + 1} / ${images.length}`;
   }
 
-  function open(index) {
-    show(index);
+  function open() {
+    show(0);
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -34,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  thumbs.forEach((t, i) => t.addEventListener('click', () => open(i)));
+  trigger.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
   prevBtn.addEventListener('click', () => show(current - 1));
   nextBtn.addEventListener('click', () => show(current + 1));
